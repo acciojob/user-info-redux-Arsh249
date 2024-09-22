@@ -44,8 +44,8 @@ const App = () => {
         <br />
         <button type="submit">Submit</button>
       </form>
-      <h2 className='output'>Current values:</h2>
-      <p>Name - {name}</p>
+      <h2>Current values:</h2>
+      <p className='output'>Name - {name}</p>
       <p>Email - {email}</p>
     </div>
   );
