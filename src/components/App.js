@@ -20,6 +20,7 @@ const App = () => {
 
   return (
     <div>
+      <h1>User Information</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Name:
@@ -43,7 +44,7 @@ const App = () => {
         <br />
         <button type="submit">Submit</button>
       </form>
-      <h2>Current values:</h2>
+      <h2 className='output'>Current values:</h2>
       <p>Name - {name}</p>
       <p>Email - {email}</p>
     </div>
