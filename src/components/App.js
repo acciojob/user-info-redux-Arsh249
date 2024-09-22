@@ -45,8 +45,10 @@ const App = () => {
         <button type="submit">Submit</button>
       </form>
       <h2>Current values:</h2>
-      <p className='output'>Name - {name}</p>
+      <div className='output'>
+      <p>Name - {name}</p>
       <p>Email - {email}</p>
+      </div>
     </div>
   );
 };
