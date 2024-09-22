@@ -1,30 +1,21 @@
-// App.js
 import React, { useState } from 'react';
-import { Provider, useDispatch, useSelector } from 'react-redux';
-import store from './store';
-import { updateName, updateEmail } from './action';
 
-const UserForm = () => {
-  const dispatch = useDispatch();
-  const name = useSelector((state) => state.name);
-  const email = useSelector((state) => state.email);
-  const [inputName, setInputName] = useState('');
-  const [inputEmail, setInputEmail] = useState('');
+const App = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
   const handleNameChange = (e) => {
-    setInputName(e.target.value);
+    setName(e.target.value);
   };
 
   const handleEmailChange = (e) => {
-    setInputEmail(e.target.value);
+    setEmail(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputName) dispatch(updateName(inputName));
-    if (inputEmail) dispatch(updateEmail(inputEmail));
-    setInputName('');
-    setInputEmail('');
+    // Here you can handle any additional logic for submitting the data
+    console.log('Submitted:', { name, email });
   };
 
   return (
@@ -32,28 +23,30 @@ const UserForm = () => {
       <form onSubmit={handleSubmit}>
         <label>
           Name:
-          <input type="text" value={inputName} onChange={handleNameChange} />
+          <input
+            type="text"
+            value={name}
+            onChange={handleNameChange}
+            id="name-input"
+          />
         </label>
         <br />
         <label>
           Email:
-          <input type="email" value={inputEmail} onChange={handleEmailChange} />
+          <input
+            type="email"
+            value={email}
+            onChange={handleEmailChange}
+            id="email-input"
+          />
         </label>
         <br />
         <button type="submit">Submit</button>
       </form>
-      <h2>Current values in store:</h2>
+      <h2>Current values:</h2>
       <p>Name - {name}</p>
       <p>Email - {email}</p>
     </div>
-  );
-};
-
-const App = () => {
-  return (
-    <Provider store={store}>
-      <UserForm />
-    </Provider>
   );
 };
 
